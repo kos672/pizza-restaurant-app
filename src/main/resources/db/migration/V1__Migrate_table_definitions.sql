@@ -2,9 +2,10 @@ CREATE TABLE address
 (
   id_address INT PRIMARY KEY AUTO_INCREMENT,
   id_client  INT,
+  street     VARCHAR(55),
   city       VARCHAR(55) NOT NULL,
   house_nr   VARCHAR(5)  NOT NULL,
-  flat_nr    SMALLINT    NOT NULL
+  flat_nr    SMALLINT
 );
 
 CREATE TABLE category
@@ -24,16 +25,16 @@ CREATE TABLE client
 CREATE TABLE dish
 (
   id_dish     INT PRIMARY KEY AUTO_INCREMENT,
-  id_category INT           NOT NULL,
-  name_dish   INT           NOT NULL,
-  price_dish  DECIMAL(2, 2) NOT NULL
+  id_category INT         NOT NULL,
+  name_dish   VARCHAR(55) NOT NULL,
+  price_dish  FLOAT       NOT NULL
 );
 
 CREATE TABLE drink
 (
   id_drink    INT PRIMARY KEY AUTO_INCREMENT,
-  name_drink  VARCHAR(55)   NOT NULL,
-  price_drink DECIMAL(2, 2) NOT NULL
+  name_drink  VARCHAR(55) NOT NULL,
+  price_drink FLOAT       NOT NULL
 );
 
 CREATE TABLE ingredient
