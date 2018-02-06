@@ -1,7 +1,6 @@
 CREATE TABLE address
 (
   id_address INT PRIMARY KEY AUTO_INCREMENT,
-  id_client  INT,
   street     VARCHAR(55),
   city       VARCHAR(55) NOT NULL,
   house_nr   VARCHAR(5)  NOT NULL,
@@ -17,17 +16,17 @@ CREATE TABLE category
 CREATE TABLE client
 (
   id_client    INT PRIMARY KEY AUTO_INCREMENT,
-  id_address   INT           NOT NULL,
   name_client  VARCHAR(55)   NOT NULL,
-  phone_client NUMERIC(9, 0) NOT NULL
+  phone_client NUMERIC(9, 0) NOT NULL,
+  id_address   INT           NOT NULL,
 );
 
 CREATE TABLE dish
 (
   id_dish     INT PRIMARY KEY AUTO_INCREMENT,
-  id_category INT         NOT NULL,
   name_dish   VARCHAR(55) NOT NULL,
-  price_dish  FLOAT       NOT NULL
+  price_dish  FLOAT       NOT NULL,
+  id_category INT         NOT NULL
 );
 
 CREATE TABLE drink
@@ -60,7 +59,6 @@ CREATE TABLE purchase
 (
   id_purchase   INT PRIMARY KEY AUTO_INCREMENT,
   nr_purchase   INT NOT NULL,
-  extra_cheese  TINYINT,
   time_purchase TIME,
   notes         VARCHAR(255),
   id_address    INT NOT NULL,
@@ -82,20 +80,6 @@ CREATE TABLE purchase_drink
   count_drink INT NOT NULL,
   PRIMARY KEY (id_drink, id_purchase)
 );
-
-CREATE TABLE purchase_ingredient
-(
-  id_purchase   INT NOT NULL,
-  id_ingredient INT NOT NULL,
-  PRIMARY KEY (id_purchase, id_ingredient)
-);
-
-ALTER TABLE purchase_ingredient
-  COMMENT 'additional ingredient';
-
-ALTER TABLE address
-  ADD CONSTRAINT FK_ADDRESS_RELATIONS_CLIENT FOREIGN KEY (id_client)
-REFERENCES client (id_client);
 
 ALTER TABLE client
   ADD CONSTRAINT FK_CLIENT_RELATIONS_ADDRESS FOREIGN KEY (id_address)
@@ -136,11 +120,3 @@ REFERENCES drink (id_drink);
 ALTER TABLE purchase_drink
   ADD CONSTRAINT FK_purchase_DR_RELATIONS_purchase FOREIGN KEY (id_purchase)
 REFERENCES purchase (id_purchase);
-
-ALTER TABLE purchase_ingredient
-  ADD CONSTRAINT FK_purchase_IN_RELATIONS_purchase FOREIGN KEY (id_purchase)
-REFERENCES purchase (id_purchase);
-
-ALTER TABLE purchase_ingredient
-  ADD CONSTRAINT FK_purchase_IN_RELATIONS_INGREDIE FOREIGN KEY (id_ingredient)
-REFERENCES ingredient (id_ingredient);
