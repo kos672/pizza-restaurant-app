@@ -9,6 +9,7 @@ import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -17,6 +18,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.List;
 
 @Getter
@@ -27,30 +29,30 @@ import java.util.List;
 @ToString
 @Entity
 @Table(name = "dish")
-public class Dish {
+public class Dish implements Serializable {
 
     @Id
     @GeneratedValue
-    @Column(name = "id_dish")
+    @Column(name = "id_dish", nullable = false)
     private Integer id;
 
-    @Column(name = "name_dish")
+    @Column(name = "name_dish", nullable = false)
     private String name;
 
-    @Column(name = "price_dish", precision = 2)
+    @Column(name = "price_dish", nullable = false)
     private double price;
 
-    @OneToMany(mappedBy = "dish")
+    @OneToMany(mappedBy = "dish", fetch = FetchType.LAZY)
     private List<PurchaseDish> purchases;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "dish_ingredient",
             joinColumns = @JoinColumn(name = "id_dish", referencedColumnName = "id_dish"),
             inverseJoinColumns = @JoinColumn(name = "id_ingredient", referencedColumnName =
                     "id_ingredient"))
     private List<Ingredient> ingredients;
 
-    @ManyToOne
-    @JoinColumn(name = "id_category")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_category", nullable = false)
     private Category category;
 }

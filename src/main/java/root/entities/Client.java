@@ -9,9 +9,11 @@ import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -27,16 +29,17 @@ public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_client")
+    @Column(name = "id_client", nullable = false)
     private Integer id;
 
-    @Column(name = "name_client")
+    @Column(name = "name_client", nullable = false)
     private String name;
 
-    @Column(name = "phone_client")
+    @Column(name = "phone_client", nullable = false)
     private int phoneNumber;
 
-    @OneToOne(mappedBy = "client")
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_address", nullable = false)
     private Address address;
 
 }

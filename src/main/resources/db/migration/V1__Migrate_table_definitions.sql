@@ -18,15 +18,15 @@ CREATE TABLE client
   id_client    INT PRIMARY KEY AUTO_INCREMENT,
   name_client  VARCHAR(55)   NOT NULL,
   phone_client NUMERIC(9, 0) NOT NULL,
-  id_address   INT           NOT NULL,
+  id_address   INT           NOT NULL
 );
 
 CREATE TABLE dish
 (
   id_dish     INT PRIMARY KEY AUTO_INCREMENT,
+  id_category INT         NOT NULL,
   name_dish   VARCHAR(55) NOT NULL,
-  price_dish  FLOAT       NOT NULL,
-  id_category INT         NOT NULL
+  price_dish  FLOAT       NOT NULL
 );
 
 CREATE TABLE drink

@@ -9,6 +9,7 @@ import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
@@ -33,9 +34,7 @@ public class Ingredient {
     @Column(name = "name_ingredient")
     private String name;
 
-    @ManyToMany(mappedBy = "ingredients")
+    @ManyToMany(mappedBy = "ingredients", fetch = FetchType.LAZY)
     private List<Dish> dish;
 
-    @ManyToMany(mappedBy = "ingredients")
-    private List<Purchase> purchases;
 }

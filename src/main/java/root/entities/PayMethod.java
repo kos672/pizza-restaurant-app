@@ -9,12 +9,13 @@ import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import java.util.Set;
+import java.util.List;
 
 @Getter
 @Setter
@@ -28,12 +29,12 @@ public class PayMethod {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_pay_method")
+    @Column(name = "id_pay_method", nullable = false)
     private Integer id;
 
-    @Column(name = "name_pay_method")
+    @Column(name = "name_pay_method", nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "payMethod")
-    private Set<Purchase> purchases;
+    @OneToMany(mappedBy = "payMethod", fetch = FetchType.LAZY)
+    private List<Purchase> purchases;
 }

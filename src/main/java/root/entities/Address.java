@@ -12,11 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import java.util.List;
 
 @Getter
 @Setter
@@ -33,24 +29,23 @@ public class Address {
     @Column(name = "id_address")
     private Integer id;
 
-    @Column(name = "city")
+    @Column(name = "city", nullable = false)
     private String city;
 
-    @Column(name = "street")
+    @Column(name = "street", nullable = false)
     private String street;
 
-    @Column(name = "house_nr")
+    @Column(name = "house_nr", nullable = false)
     private String houseNumber;
 
-    @Column(name = "flat_nr")
+    @Column(name = "flat_nr", nullable = false)
     private int flatNumber;
 
-    @OneToOne()
-    @JoinColumn(name = "id_client")
-    private Client client;
+//    @OneToOne(mappedBy = "address")
+//    private Client client;
 
-    @OneToMany(mappedBy = "address")
-    private List<Purchase> purchases;
+//    @OneToMany(mappedBy = "address", fetch = FetchType.LAZY)
+//    private List<Purchase> purchases;
 
 
 }

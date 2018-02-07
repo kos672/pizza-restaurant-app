@@ -9,6 +9,7 @@ import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -27,12 +28,12 @@ public class Category {
 
     @Id
     @GeneratedValue
-    @Column(name = "id_category")
+    @Column(name = "id_category", nullable = false)
     private Integer id;
 
-    @Column(name = "name_category")
+    @Column(name = "name_category", nullable = false)
     private String name;
 
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
     private List<Dish> dishes;
 }

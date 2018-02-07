@@ -9,6 +9,7 @@ import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,15 +29,15 @@ public class Drink {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_drink")
+    @Column(name = "id_drink", nullable = false)
     private Integer id;
 
-    @Column(name = "name_drink")
+    @Column(name = "name_drink", nullable = false)
     private String name;
 
-    @Column(name = "price_drink", precision = 2)
+    @Column(name = "price_drink", nullable = false)
     private double price;
 
-    @OneToMany(mappedBy = "drink")
+    @OneToMany(mappedBy = "drink", fetch = FetchType.LAZY)
     private List<PurchaseDrink> purchase;
 }
