@@ -12,7 +12,7 @@ public class FlywayService {
 
     public static void main(String[] args) {
         prepareFlyway().clean();
-        prepareFlyway().migrate();
+        //prepareFlyway().migrate();
     }
 
     private static Flyway prepareFlyway() {
