@@ -44,34 +44,42 @@ INSERT INTO ingredient VALUES (NULL, 'rukola');
 
 INSERT INTO dish VALUES (NULL, (SELECT id_category
                                 FROM category
-                                WHERE name_category = 'pizza'), 'pizza margherita', 12.49);
+                                WHERE name_category = 'pizza'), 'pizza margherita', 'someImagePath', 'Klasyczna
+                                pizza', 12.49);
 INSERT INTO dish VALUES (NULL, (SELECT id_category
                                 FROM category
-                                WHERE name_category = 'pizza'), 'pizza hawajska', 15.49);
+                                WHERE name_category = 'pizza'), 'pizza hawajska', 'someImagePath', 'Pizza hawajska
+                                z ananasem i kurczakiem', 15.49);
 INSERT INTO dish VALUES (NULL, (SELECT id_category
                                 FROM category
-                                WHERE name_category = 'pizza'), 'pizza pepperoni', 16.99);
+                                WHERE name_category = 'pizza'), 'pizza pepperoni', 'someImagePath', 'Pizza
+                                pepperoni dla tych, kto uwielba salami', 16.99);
 INSERT INTO dish VALUES (NULL, (SELECT id_category
                                 FROM category
-                                WHERE name_category = 'calzone'), 'con pollo', 17.49);
+                                WHERE name_category = 'calzone'), 'con pollo', 'someImagePath', 'Niestandardowe
+                                danie', 17.49);
 INSERT INTO dish VALUES (NULL, (SELECT id_category
                                 FROM category
-                                WHERE name_category = 'calzone'), 'interno ricco', 17.49);
+                                WHERE name_category = 'calzone'), 'interno ricco', 'someImagePath', 'Niestandardowe
+                                danie znow', 17.49);
 INSERT INTO dish VALUES (NULL, (SELECT id_category
                                 FROM category
-                                WHERE name_category = 'pasta'), 'bolognese', 18.99);
+                                WHERE name_category = 'pasta'), 'bolognese', 'someImagePath', 'Sos bolognese', 18.99);
 INSERT INTO dish VALUES (NULL, (SELECT id_category
                                 FROM category
-                                WHERE name_category = 'pasta'), 'alla carbonara', 18.49);
+                                WHERE name_category = 'pasta'), 'alla carbonara', 'someImagePath', 'Standardowa
+                                pasta', 18.49);
 INSERT INTO dish VALUES (NULL, (SELECT id_category
                                 FROM category
-                                WHERE name_category = 'pasta'), 'spinaci', 15.49);
+                                WHERE name_category = 'pasta'), 'spinaci', 'someImagePath', 'Pasta szpinakowa', 15.49);
 INSERT INTO dish VALUES (NULL, (SELECT id_category
                                 FROM category
-                                WHERE name_category = 'lasagne'), 'lasagna bolognese', 19.49);
+                                WHERE name_category = 'lasagne'), 'lasagna bolognese', 'someImagePath', 'Niezwykle
+                                danie godne polecenia', 19.49);
 INSERT INTO dish VALUES (NULL, (SELECT id_category
                                 FROM category
-                                WHERE name_category = 'insalate'), 'pollo ricolla', 13.49);
+                                WHERE name_category = 'insalate'), 'pollo ricolla', 'someImagePath', 'Salatka z
+                                rukola', 13.49);
 
 INSERT INTO dish_ingredient VALUES ((SELECT id_dish
                                      FROM dish

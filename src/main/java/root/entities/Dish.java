@@ -42,6 +42,12 @@ public class Dish implements Serializable {
     @Column(name = "price_dish", nullable = false)
     private double price;
 
+    @Column(name = "image_path", nullable = false)
+    private String imagePath;
+
+    @Column(name = "description", nullable = false)
+    private String description;
+
     @OneToMany(mappedBy = "dish", fetch = FetchType.LAZY)
     private List<PurchaseDish> purchases;
 

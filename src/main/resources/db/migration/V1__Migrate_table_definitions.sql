@@ -24,9 +24,11 @@ CREATE TABLE client
 CREATE TABLE dish
 (
   id_dish     INT PRIMARY KEY AUTO_INCREMENT,
-  id_category INT         NOT NULL,
-  name_dish   VARCHAR(55) NOT NULL,
-  price_dish  FLOAT       NOT NULL
+  id_category INT          NOT NULL,
+  name_dish   VARCHAR(55)  NOT NULL,
+  image_path  VARCHAR(255) NOT NULL,
+  description VARCHAR(255) NOT NULL,
+  price_dish  FLOAT        NOT NULL
 );
 
 CREATE TABLE drink
