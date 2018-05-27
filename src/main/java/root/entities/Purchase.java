@@ -16,6 +16,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import java.io.Serializable;
 import java.sql.Time;
 import java.util.List;
 
@@ -29,7 +30,7 @@ import static javax.persistence.FetchType.LAZY;
 @ToString
 @Entity
 @Table(name = "purchase")
-public class Purchase {
+public class Purchase implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
