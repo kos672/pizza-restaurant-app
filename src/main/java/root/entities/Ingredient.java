@@ -35,6 +35,6 @@ public class Ingredient {
     private String name;
 
     @ManyToMany(mappedBy = "ingredients", fetch = FetchType.LAZY)
-    private List<Dish> dish;
+    private List<Dish> dishes;
 
 }
