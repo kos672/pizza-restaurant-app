@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import root.business.ingredient.IngredientVO;
 
 import java.io.Serializable;
 import java.util.List;
@@ -34,7 +35,7 @@ public class DishVO implements Serializable {
     private List<Integer> purchases;
 
     @JsonProperty("ingredients")
-    private List<Integer> ingredients;
+    private List<IngredientVO> ingredients;
 
     @JsonProperty("categoryId")
     private int category;
