@@ -21,6 +21,7 @@ public class DishEntityToDtoConverter extends AbstractEntityToDtoConverter<Dish,
                         .collect(Collectors.toList()))
                 .ingredients(entity.getIngredients().stream().map(Ingredient::getId).collect
                         (Collectors.toList()))
+                .category(entity.getCategory().getId())
                 .build();
     }
 }
