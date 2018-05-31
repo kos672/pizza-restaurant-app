@@ -9,10 +9,12 @@ INSERT INTO address VALUES (NULL, 'Piłsudskiego', 'Kraków', 68, 10);
 INSERT INTO address VALUES (NULL, 'Fabryczna', 'Łódź', 3, 0);
 
 INSERT INTO drink VALUES (NULL, 'Coca-cola', 5.99);
-INSERT INTO drink VALUES (NULL, 'Nestea', 4.99);
 INSERT INTO drink VALUES (NULL, '7UP', 4.99);
-INSERT INTO drink VALUES (NULL, 'Sok jabłkowy', 5.49);
 INSERT INTO drink VALUES (NULL, 'Mirinda', 5.99);
+INSERT INTO drink VALUES (NULL, 'Nestea', 4.99);
+INSERT INTO drink VALUES (NULL, 'Sok jabłkowy', 5.49);
+INSERT INTO drink VALUES (NULL, 'Woda niegazowana', 5.49);
+INSERT INTO drink VALUES (NULL, 'Woda gazowana', 5.49);
 
 INSERT INTO category VALUES (NULL, 'pizza');
 INSERT INTO category VALUES (NULL, 'spaghetti');
