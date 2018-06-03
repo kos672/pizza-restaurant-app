@@ -2,11 +2,11 @@ INSERT INTO pay_method VALUES (NULL, 'gotówką przy odbiorze');
 INSERT INTO pay_method VALUES (NULL, 'kartą przy odbiorze');
 INSERT INTO pay_method VALUES (NULL, 'płatność online');
 
-INSERT INTO address VALUES (NULL, 'Olszewskiego', 'Wrocław', 110, 25);
-INSERT INTO address VALUES (NULL, 'Kwiska', 'Wrocław', 80, 3);
-INSERT INTO address VALUES (NULL, '3 maja', 'Warszawa', 33, 11);
-INSERT INTO address VALUES (NULL, 'Piłsudskiego', 'Kraków', 68, 10);
-INSERT INTO address VALUES (NULL, 'Fabryczna', 'Łódź', 3, 0);
+INSERT INTO address VALUES (NULL, 'Olszewskiego', 'Wrocław');
+INSERT INTO address VALUES (NULL, 'Kwiska', 'Wrocław');
+INSERT INTO address VALUES (NULL, '3 maja', 'Warszawa');
+INSERT INTO address VALUES (NULL, 'Piłsudskiego', 'Kraków');
+INSERT INTO address VALUES (NULL, 'Fabryczna', 'Łódź');
 
 INSERT INTO drink VALUES (NULL, 'Coca-cola', 5.99);
 INSERT INTO drink VALUES (NULL, '7UP', 4.99);

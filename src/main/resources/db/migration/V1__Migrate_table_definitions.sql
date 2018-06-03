@@ -1,10 +1,8 @@
 CREATE TABLE address
 (
   id_address INT PRIMARY KEY AUTO_INCREMENT,
-  street     VARCHAR(55),
-  city       VARCHAR(55) NOT NULL,
-  house_nr   VARCHAR(5)  NOT NULL,
-  flat_nr    SMALLINT
+  street     VARCHAR(55) NOT NULL,
+  city       VARCHAR(55) NOT NULL
 );
 
 CREATE TABLE category
@@ -62,6 +60,8 @@ CREATE TABLE purchase
   id_purchase   INT PRIMARY KEY AUTO_INCREMENT,
   nr_purchase   INT NOT NULL,
   time_purchase TIME,
+  house_nr      VARCHAR(5)  NOT NULL,
+  flat_nr       SMALLINT,
   notes         VARCHAR(255),
   id_address    INT NOT NULL,
   id_pay_method INT NOT NULL
