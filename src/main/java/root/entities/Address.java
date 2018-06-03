@@ -35,17 +35,5 @@ public class Address {
     @Column(name = "street", nullable = false)
     private String street;
 
-    @Column(name = "house_nr", nullable = false)
-    private String houseNumber;
-
-    @Column(name = "flat_nr", nullable = false)
-    private int flatNumber;
-
-//    @OneToOne(mappedBy = "address")
-//    private Client client;
-
-//    @OneToMany(mappedBy = "address", fetch = FetchType.LAZY)
-//    private List<Purchase> purchases;
-
 
 }

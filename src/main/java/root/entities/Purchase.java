@@ -37,9 +37,6 @@ public class Purchase implements Serializable {
     @Column(name = "id_purchase")
     private Integer id;
 
-    @Column(name = "nr_purchase", nullable = false)
-    private int purchaseNumber;
-
     @Column(name = "time_purchase")
     private Time purchaseTime;
 
@@ -49,6 +46,12 @@ public class Purchase implements Serializable {
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "id_address")
     private Address address;
+
+    @Column(name = "house_nr", nullable = false)
+    private String houseNumber;
+
+    @Column(name = "flat_nr", nullable = false)
+    private int flatNumber;
 
     @ManyToOne()
     @JoinColumn(name = "id_pay_method")
