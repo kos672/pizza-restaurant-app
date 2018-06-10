@@ -50,10 +50,10 @@ public class Purchase implements Serializable {
     @Column(name = "house_nr", nullable = false)
     private String houseNumber;
 
-    @Column(name = "flat_nr", nullable = false)
+    @Column(name = "flat_nr")
     private int flatNumber;
 
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "id_pay_method")
     private PayMethod payMethod;
 

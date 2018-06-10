@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @CrossOrigin("http://localhost:4200")
-@RestController("/dishes")
+@RestController
 public class DishController {
 
     private DishService dishService;
@@ -23,7 +23,7 @@ public class DishController {
     }
 
 
-    @GetMapping
+    @GetMapping("/dishes")
     public ResponseEntity<List<DishVO>> getAllDishes() {
         List<DishDto> dishesDto = dishService.getAllDishes();
         List<DishVO> dishesVO = dishDtoToVOConverter.convertAll(dishesDto);
