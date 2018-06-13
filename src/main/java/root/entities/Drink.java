@@ -9,13 +9,10 @@ import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import java.util.List;
 
 @Getter
 @Setter
@@ -38,6 +35,4 @@ public class Drink {
     @Column(name = "price_drink", nullable = false)
     private double price;
 
-    @OneToMany(mappedBy = "drink", fetch = FetchType.LAZY)
-    private List<PurchaseDrink> purchase;
 }
