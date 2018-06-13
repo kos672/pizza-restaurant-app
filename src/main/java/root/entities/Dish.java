@@ -16,7 +16,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.io.Serializable;
 import java.util.List;
@@ -47,9 +46,6 @@ public class Dish implements Serializable {
 
     @Column(name = "description", nullable = false)
     private String description;
-
-    @OneToMany(mappedBy = "dish", fetch = FetchType.LAZY)
-    private List<PurchaseDish> purchases;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "dish_ingredient",

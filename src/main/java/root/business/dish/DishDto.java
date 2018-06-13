@@ -20,7 +20,6 @@ public class DishDto {
     private double price;
     private String imagePath;
     private String description;
-    private List<Integer> purchases;
     private List<Integer> ingredients;
     private int category;
 

@@ -30,7 +30,6 @@ public class DishDtoToVOConverter extends AbstractDtoToVOConverter<DishDto, Dish
         vo.setPrice(dto.getPrice());
         vo.setImagePath(dto.getImagePath());
         vo.setDescription(dto.getDescription());
-        vo.setPurchases(dto.getPurchases());
         vo.setIngredients(dto.getIngredients().stream().map(integer -> this.ingredientService.getIngredientById
                 (integer)).map(ingredientDtoToVOConverter::convert).collect(toList()));
         vo.setCategory(dto.getCategory());

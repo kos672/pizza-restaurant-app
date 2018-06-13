@@ -31,9 +31,6 @@ public class DishVO implements Serializable {
     @JsonProperty("description")
     private String description;
 
-    @JsonProperty("purchases")
-    private List<Integer> purchases;
-
     @JsonProperty("ingredients")
     private List<IngredientVO> ingredients;
 
