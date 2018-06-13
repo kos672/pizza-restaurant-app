@@ -7,17 +7,19 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Time;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static javax.persistence.FetchType.LAZY;
@@ -38,7 +40,7 @@ public class Purchase implements Serializable {
     private Integer id;
 
     @Column(name = "time_purchase")
-    private Time purchaseTime;
+    private LocalDateTime purchaseTime;
 
     @Column(name = "notes")
     private String notes;
@@ -57,9 +59,15 @@ public class Purchase implements Serializable {
     @JoinColumn(name = "id_pay_method")
     private PayMethod payMethod;
 
-    @OneToMany(mappedBy = "purchase")
-    private List<PurchaseDrink> drink;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "purchase_drink",
+            joinColumns = @JoinColumn(name = "id_purchase"),
+            inverseJoinColumns = @JoinColumn(name = "id_drink"))
+    private List<Drink> drinks;
 
-    @OneToMany(mappedBy = "purchase")
-    private List<PurchaseDish> dishes;
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "purchase_dish",
+            joinColumns = @JoinColumn(name = "id_purchase"),
+            inverseJoinColumns = @JoinColumn(name = "id_dish"))
+    private List<Dish> dishes;
 }
