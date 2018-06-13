@@ -58,8 +58,7 @@ CREATE TABLE pay_method
 CREATE TABLE purchase
 (
   id_purchase   INT PRIMARY KEY AUTO_INCREMENT,
-  nr_purchase   INT NOT NULL,
-  time_purchase TIME,
+  time_purchase DATETIME,
   house_nr      VARCHAR(5)  NOT NULL,
   flat_nr       SMALLINT,
   notes         VARCHAR(255),
@@ -70,17 +69,13 @@ CREATE TABLE purchase
 CREATE TABLE purchase_dish
 (
   id_purchase INT NOT NULL,
-  id_dish     INT NOT NULL,
-  count_dish  INT NOT NULL,
-  PRIMARY KEY (id_purchase, id_dish)
+  id_dish     INT NOT NULL
 );
 
 CREATE TABLE purchase_drink
 (
-  id_drink    INT NOT NULL,
   id_purchase INT NOT NULL,
-  count_drink INT NOT NULL,
-  PRIMARY KEY (id_drink, id_purchase)
+  id_drink    INT NOT NULL
 );
 
 ALTER TABLE client
@@ -109,11 +104,11 @@ REFERENCES address (id_address);
 
 ALTER TABLE purchase_dish
   ADD CONSTRAINT FK_purchase_DI_RELATIONS_purchase FOREIGN KEY (id_purchase)
-REFERENCES purchase (id_purchase);
+REFERENCES purchase (id_purchase) ON UPDATE CASCADE;
 
 ALTER TABLE purchase_dish
   ADD CONSTRAINT FK_purchase_DI_RELATIONS_DISH FOREIGN KEY (id_dish)
-REFERENCES dish (id_dish);
+REFERENCES dish (id_dish) ON UPDATE CASCADE;
 
 ALTER TABLE purchase_drink
   ADD CONSTRAINT FK_purchase_DR_RELATIONS_DRINK FOREIGN KEY (id_drink)
