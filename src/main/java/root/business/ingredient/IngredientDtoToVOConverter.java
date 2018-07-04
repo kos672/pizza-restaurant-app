@@ -10,7 +10,6 @@ public class IngredientDtoToVOConverter extends AbstractDtoToVOConverter<Ingredi
         IngredientVO vo = new IngredientVO();
         vo.setId(dto.getId());
         vo.setName(dto.getName());
-        vo.setDishes(dto.getDishes());
         return vo;
     }
 }

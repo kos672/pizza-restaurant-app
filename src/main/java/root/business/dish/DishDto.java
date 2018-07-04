@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import root.business.ingredient.IngredientDto;
 
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class DishDto {
     private double price;
     private String imagePath;
     private String description;
-    private List<Integer> ingredients;
+    private List<IngredientDto> ingredients;
     private int category;
 
 }

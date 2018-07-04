@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import root.entities.Dish;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -19,7 +20,7 @@ public class DishService {
     }
 
     public List<DishDto> getAllDishes() {
-        List<Dish> dishes = this.dishRepository.findAll();
+        List<Dish> dishes = new ArrayList<>(dishRepository.getDishesWithIngredients());
         return dishEntityToDtoConverter.convertAll(dishes);
     }
 

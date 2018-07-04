@@ -7,8 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Getter
 @Setter
 @Builder
@@ -18,6 +16,5 @@ public class IngredientDto {
 
     private Integer id;
     private String name;
-    private List<Integer> dishes;
 
 }
