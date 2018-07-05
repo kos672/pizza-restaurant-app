@@ -20,7 +20,7 @@ public class DishService {
     }
 
     public List<DishDto> getAllDishes() {
-        List<Dish> dishes = new ArrayList<>(dishRepository.getDishesWithIngredients());
+        List<Dish> dishes = new ArrayList<>(dishRepository.getDishesWithIngredientsAndCategory());
         return dishEntityToDtoConverter.convertAll(dishes);
     }
 

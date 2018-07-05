@@ -10,7 +10,7 @@ import java.util.Set;
 @Repository
 public interface DishRepository extends JpaRepository<Dish, Integer> {
 
-    @Query("select d from Dish d join fetch d.ingredients")
-    public Set<Dish> getDishesWithIngredients();
+    @Query("select d from Dish d left join fetch d.ingredients join fetch d.category")
+    Set<Dish> getDishesWithIngredientsAndCategory();
 
 }
