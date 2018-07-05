@@ -15,7 +15,7 @@ import root.business.purchase.export.PurchaseExportVO;
 
 import java.util.List;
 
-@CrossOrigin("http://localhost:4200")
+@CrossOrigin
 @RestController
 public class PurchaseController {
 
